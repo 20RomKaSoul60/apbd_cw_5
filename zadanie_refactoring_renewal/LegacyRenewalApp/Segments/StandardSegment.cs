@@ -4,7 +4,7 @@ public class StandardSegment : ISegment
 {
     public string name => "Standard";
 
-    public decimal setDiscountAmount(decimal baseDisc)
+    public decimal setDiscountAmount(decimal baseDisc,SubscriptionPlan plan)
     {
         return baseDisc;
     }

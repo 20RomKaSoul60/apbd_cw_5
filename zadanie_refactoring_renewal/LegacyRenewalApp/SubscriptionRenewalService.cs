@@ -47,11 +47,12 @@ namespace LegacyRenewalApp
             }
 
             decimal baseAmount = (plan.MonthlyPricePerSeat * seatCount * 12m) + plan.SetupFee;
-            decimal discountAmount = customer.Segment.setDiscountAmount(baseAmount);
+            decimal discountAmount = 0m;
             string notes = string.Empty;
+            discountAmount += customer.Segment.setDiscountAmount(baseAmount,plan);
             string newNotes = customer.Segment.addNote(notes);
             notes += newNotes;
-            
+
 
             if (customer.YearsWithCompany >= 5)
             {

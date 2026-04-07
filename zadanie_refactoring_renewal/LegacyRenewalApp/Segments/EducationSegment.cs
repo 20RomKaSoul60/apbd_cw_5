@@ -4,9 +4,11 @@ public class EducationSegment : ISegment
 {
     public string name =>  "Education";
 
-    public decimal setDiscountAmount(decimal baseDisc)
+    public decimal setDiscountAmount(decimal baseDisc,SubscriptionPlan plan)
     {
-        baseDisc *= 0.20m;
+        if(plan.IsEducationEligible){
+            baseDisc *= 0.20m;
+        }
         return baseDisc;
     }
 
@@ -15,4 +17,6 @@ public class EducationSegment : ISegment
         note += "education discount; ";
         return note;
     }
+
+    
 }

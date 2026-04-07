@@ -4,7 +4,7 @@ public class GoldSegment : ISegment
 {
     public string name => "Gold";
     
-    public decimal setDiscountAmount(decimal baseDisc)
+    public decimal setDiscountAmount(decimal baseDisc,SubscriptionPlan plan)
     {
         baseDisc *= 0.10m;
         return baseDisc;
