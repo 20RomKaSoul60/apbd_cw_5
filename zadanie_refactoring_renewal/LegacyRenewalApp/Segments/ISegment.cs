@@ -1,12 +1,8 @@
-namespace LegacyRenewalApp;
-
-public interface ISegment
+namespace LegacyRenewalApp
 {
-
-
-    public decimal setDiscountAmount(decimal baseDisc,SubscriptionPlan plan);
-    public string addNote(string note);
-
-
-
+    public interface ISegment
+    {
+        decimal CalculateDiscount(decimal baseAmount, SubscriptionPlan plan);
+        string GetNote(SubscriptionPlan plan);
+    }
 }

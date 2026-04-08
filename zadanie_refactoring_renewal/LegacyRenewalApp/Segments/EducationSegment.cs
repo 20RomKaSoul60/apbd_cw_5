@@ -1,22 +1,25 @@
-namespace LegacyRenewalApp.Segments;
-
-public class EducationSegment : ISegment
+namespace LegacyRenewalApp.Segments
 {
-    public string name =>  "Education";
-
-    public decimal setDiscountAmount(decimal baseDisc,SubscriptionPlan plan)
+    public class EducationSegment : ISegment
     {
-        if(plan.IsEducationEligible){
-            baseDisc *= 0.20m;
+        public decimal CalculateDiscount(decimal baseAmount, SubscriptionPlan plan)
+        {
+            if (plan.IsEducationEligible)
+            {
+                return baseAmount * 0.20m;
+            }
+
+            return 0m;
         }
-        return baseDisc;
-    }
 
-    public string addNote(string note)
-    {
-        note += "education discount; ";
-        return note;
-    }
+        public string GetNote(SubscriptionPlan plan)
+        {
+            if (plan.IsEducationEligible)
+            {
+                return "education discount; ";
+            }
 
-    
+            return string.Empty;
+        }
+    }
 }

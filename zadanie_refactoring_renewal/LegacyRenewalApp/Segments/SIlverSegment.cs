@@ -1,18 +1,15 @@
-namespace LegacyRenewalApp.Segments;
-
-public class SilverSegment : ISegment
+namespace LegacyRenewalApp.Segments
 {
-    public string name => "Silver";
-    
-    public decimal setDiscountAmount(decimal amount, SubscriptionPlan plan)
+    public class SilverSegment : ISegment
     {
-        amount *= 0.05m;
-        return amount;
-    }
+        public decimal CalculateDiscount(decimal baseAmount, SubscriptionPlan plan)
+        {
+            return baseAmount * 0.05m;
+        }
 
-    public string addNote(string note)
-    {
-        note += "silver discount; ";
-        return note;
+        public string GetNote(SubscriptionPlan plan)
+        {
+            return "silver discount; ";
+        }
     }
 }

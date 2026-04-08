@@ -1,18 +1,15 @@
-namespace LegacyRenewalApp.Segments;
-
-public class PlatinumSegment : ISegment
+namespace LegacyRenewalApp.Segments
 {
-    public string name =>  "Platinum";
-
-    public decimal setDiscountAmount(decimal baseDisc,SubscriptionPlan plan)
+    public class PlatinumSegment : ISegment
     {
-        baseDisc *= 0.15m;
-        return baseDisc;
-    }
+        public decimal CalculateDiscount(decimal baseAmount, SubscriptionPlan plan)
+        {
+            return baseAmount * 0.15m;
+        }
 
-    public string addNote(string note)
-    {
-        note+= "platinum discount; ";
-        return note;
+        public string GetNote(SubscriptionPlan plan)
+        {
+            return "platinum discount; ";
+        }
     }
 }

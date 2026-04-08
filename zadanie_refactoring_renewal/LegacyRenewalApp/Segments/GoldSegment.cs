@@ -1,18 +1,15 @@
-namespace LegacyRenewalApp.Segments;
-
-public class GoldSegment : ISegment
+namespace LegacyRenewalApp.Segments
 {
-    public string name => "Gold";
-    
-    public decimal setDiscountAmount(decimal baseDisc,SubscriptionPlan plan)
+    public class GoldSegment : ISegment
     {
-        baseDisc *= 0.10m;
-        return baseDisc;
-    }
+        public decimal CalculateDiscount(decimal baseAmount, SubscriptionPlan plan)
+        {
+            return baseAmount * 0.10m;
+        }
 
-    public string addNote(string note)
-    {
-        note += "gold discount; ";
-        return note;
+        public string GetNote(SubscriptionPlan plan)
+        {
+            return "gold discount; ";
+        }
     }
 }

@@ -1,16 +1,15 @@
-namespace LegacyRenewalApp.Segments;
-
-public class StandardSegment : ISegment
+namespace LegacyRenewalApp.Segments
 {
-    public string name => "Standard";
-
-    public decimal setDiscountAmount(decimal baseDisc,SubscriptionPlan plan)
+    public class StandardSegment : ISegment
     {
-        return baseDisc;
-    }
+        public decimal CalculateDiscount(decimal baseAmount, SubscriptionPlan plan)
+        {
+            return 0m;
+        }
 
-    public string addNote(string note)
-    {
-        return note;
+        public string GetNote(SubscriptionPlan plan)
+        {
+            return string.Empty;
+        }
     }
 }
